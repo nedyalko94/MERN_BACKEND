@@ -15,7 +15,7 @@ const GeneralRoute = require('./Routes/GeneralRoute')
 require("./Config/passport")(passport)
 
 const { createServer } = require("http") 
-const { Server } = require("socket.io");
+// const { Server } = require("socket.io");
 
 const app = express(); //start app
 
