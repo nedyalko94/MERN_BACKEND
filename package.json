@@ -4,18 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build":"nodemon app.js",
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "client": "npm start --prefix ../FullStackCommerceFrondEnd",
-    "admin": "npm start --prefix ../FullStackAdminPanel",
-    "all": "concurrently  \"npm run client\" \"npm run admin\" \"npm run dev\"",
-    "back": "concurrently \"npm run admin\" \"npm run dev\"",
-    "front": "concurrently \"npm run client\" \"npm run dev\"",
-    "data:import": "node seederscript.js"
+    "start": "nodemon app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "", 
   "license": "ISC",
   "dependencies": {
     "@paypal/checkout-server-sdk": "^1.0.3",

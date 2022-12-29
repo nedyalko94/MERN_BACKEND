@@ -10,6 +10,14 @@
 //2
 //3
 
+// ,
+    // "client": "npm start --prefix ../FullStackCommerceFrondEnd",
+    // "admin": "npm start --prefix ../FullStackAdminPanel",
+    // "all": "concurrently  \"npm run client\" \"npm run admin\" \"npm run dev\"",
+    // "back": "concurrently \"npm run admin\" \"npm run dev\"",
+    // "front": "concurrently \"npm run client\" \"npm run dev\"",
+    // "data:import": "node seederscript.js"
+
 
 //# ToDo 
 
