@@ -59,21 +59,12 @@ app.use(cors({
 
 }))
 
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "https://endprojectcybertech.netlify.app/");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(
-  
-// );
+
+
+
 app.use(session({
   secret: 'secret key',
   resave: true,
@@ -105,10 +96,9 @@ app.use('/storage', express.static("./storage"))// express static allow us to us
 //   res.locals.error= req.flash('error')
 //   next()
 // })
-// maybe don't need it 
+ 
 
-// need to be under express session
-//passport middleware 
+
 
 
 
