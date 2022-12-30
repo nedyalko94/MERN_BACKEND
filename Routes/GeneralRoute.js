@@ -19,6 +19,9 @@ GeneralRoute.post('/NewsLetterSend',NewsLetterSend)
 GeneralRoute.post("/purchase_history",purchase_history)
 
 // GeneralRoute.post("/capture",capturePayment );
+GeneralRoute.post("/",(req,res)=>{
+  res.send("hello")
+} );
   
 
 
