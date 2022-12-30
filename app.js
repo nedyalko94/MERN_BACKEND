@@ -52,8 +52,8 @@ connectDB();
 // })
 
 app.use(cors({
-  // origin:'https://endprojectcybertech.netlify.app/',
-  "Access-Control-Allow-Origin": "*" ,
+  origin:'https://endprojectcybertech.netlify.app/Product',
+  "Access-Control-Allow-Origin": "https://raspberry-eel-wear.cyclic.app//Product/?cate" ,
   credentials:true,
 }))
 
