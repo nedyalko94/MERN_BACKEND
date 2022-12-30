@@ -52,20 +52,21 @@ connectDB();
 // })
 
 app.use(cors({
-  "Access-Control-Allow-Origin":`https://endprojectcybertech.netlify.app/*`,
+  origin:"https://endprojectcybertech.netlify.app/",
   credentials:true,
+  "Access-Control-Allow-Credentials":true,
   // origin:"https://endprojectcybertech.netlify.app/"
 
 }))
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://endprojectcybertech.netlify.app/");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "https://endprojectcybertech.netlify.app/");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
 
 
 app.use(bodyParser.json());

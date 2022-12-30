@@ -17,7 +17,7 @@ const emailLink = async(req,res)=>{
     //    let test=   await User.updateOne({id:user._id,confirm:true}) 
          await User.findByIdAndUpdate({_id:user._id},{confirm:true}) 
         // await Token.findByIdAndRemove(token._id) 
-        let hi = res.redirect('http://localhost:3000/ThankYou')
+        let hi = res.redirect(`${process.env.BASE_FROND}/ThankYou`)
         
         // setTimeout(res.redirect('http://localhost:3000/') ,100000 ) 
          
