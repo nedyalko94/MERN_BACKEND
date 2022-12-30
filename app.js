@@ -52,7 +52,7 @@ connectDB();
 // })
 
 app.use(cors({
-  origin:'http://localhost:3000',
+  origin:'endprojectcybertech.netlify.app',
   credentials:true 
 }))
 
