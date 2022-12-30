@@ -52,9 +52,9 @@ connectDB();
 // })
 
 app.use(cors({
-  origin:'https://endprojectcybertech.netlify.app/',
+  // origin:'https://endprojectcybertech.netlify.app/',
+  "Access-Control-Allow-Origin": "*" ,
   credentials:true,
-  // "Access-Control-Allow-Origin": "*" 
 }))
 
 app.use(bodyParser.json());
