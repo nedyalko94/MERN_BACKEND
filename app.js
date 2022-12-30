@@ -54,7 +54,7 @@ connectDB();
 app.use(cors({
   origin:'https://endprojectcybertech.netlify.app/',
   credentials:true,
-  "Access-Control-Allow-Origin": "*" 
+  // "Access-Control-Allow-Origin": "*" 
 }))
 
 app.use(bodyParser.json());
