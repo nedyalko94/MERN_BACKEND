@@ -54,10 +54,10 @@ UserRouter.delete('/DeleteAll', DeleteAll)
 //register handle 
 UserRouter.post('/register',register )
 //http://localhost:3004/Users/register
-
+ 
 
 // login handle
-UserRouter.post('/login',login )
+UserRouter.post('/login',login )  
 //http://localhost:3004/Users/login
 
 
@@ -82,10 +82,7 @@ UserRouter.get('/FindUser',findUserByUserNameOrName)
 //http://localhost:3004/Users/findUser?postcode=1
 
 
-//for delete 
-// const Token = require('../Models/TokenSchema')
-// const { sendEmail } = require('../Controllers/EmailValidaiton')
-// const crypto = require('crypto')
+
 
 
 // link for verify email

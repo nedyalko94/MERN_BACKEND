@@ -5,29 +5,29 @@ const Product = require("../Models/ProductSchema");
 
 const  ProductUpload = async(req,res)=>{
   console.log(req.body)
-  const arrayOfPicture=[]
+  // const arrayOfPicture=[]
   
-  req.files.forEach(element => {
-    arrayOfPicture.push(element.path.toString()) 
-    // console.log(arrayOfPicture)
+  // req.files.forEach(element => {
+  //   arrayOfPicture.push(element.path.toString()) 
+  //   // console.log(arrayOfPicture)
     
-  });
-  const obj= { 
-    Name:req.body.Name,
-    Brand:req.body.Brand,
-    CountOfStock:req.body.CountOfStock,
-    Categories:req.body.Categories,
-    Description:req.body.Description, 
-    Price:req.body.Price,
-    Rating:req.body.Rating, 
-    NumberOfVote:req.body.NumberOfVote,
-    Picture: arrayOfPicture
-  } 
-  
+  // });
+  // const obj= { 
+  //   Name:req.body.Name,
+  //   Brand:req.body.Brand,
+  //   CountOfStock:req.body.CountOfStock,
+  //   Categories:req.body.Categories,
+  //   Description:req.body.Description, 
+  //   Price:req.body.Price,
+  //   Rating:req.body.Rating,  
+  //   NumberOfVote:req.body.NumberOfVote,
+  //   Picture: arrayOfPicture
+  // } 
+  // obj
 
 
   try {
-    let product = new Product(obj);
+    let product = new Product(req.body);
    
     
     product.save().then((result) => {
@@ -58,65 +58,66 @@ const getProductById = async(req,res)=>{
 
 // find and delete by id
 
-const DeleteProduct = async(req,res)=>{
-  try {
+// const DeleteProduct = async(req,res)=>{
+//   try {
     
      
-  const {id} =req.params
-  Product.findByIdAndDelete(id,req.body)
-  .then(result=>{
-    res.json({
-      msg:'delete',
-      data:result
+//   const {id} =req.params
+//   Product.findByIdAndDelete(id,req.body)
+//   .then(result=>{
+//     res.json({
+//       msg:'delete',
+//       data:result
        
-    })
-  })
+//     })
+//   })
        
-  } catch (error) {
-     console.error(error)
-     res.status(500).json({message:"server error delete"})
-  }
-}
+//   } catch (error) {
+//      console.error(error)
+//      res.status(500).json({message:"server error delete"})
+//   }
+// }
 
 
-const UpdateProduct = async(req,res)=>{
-  try {
-    const arrayOfPicture=[]
+// const UpdateProduct = async(req,res)=>{
+//   try {
+    // need it for multer but not anymore
+    // const arrayOfPicture=[]
   
-    req.files.forEach(element => {
-      arrayOfPicture.push(element.path.toString()) 
-      console.log(arrayOfPicture)
+    // req.files.forEach(element => {
+    //   arrayOfPicture.push(element.path.toString()) 
+    //   console.log(arrayOfPicture)
       
-    });
-    const obj= { 
-      Name:req.body.Name,
-      Brand:req.body.Brand,
-      CountOfStock:req.body.CountOfStock,
-      Categories:req.body.Categories,
-      Description:req.body.Description, 
-      Price:req.body.Price,
-      Rating:req.body.Rating, 
-      NumberOfVote:req.body.NumberOfVote,
-      Picture: arrayOfPicture
-    } 
+    // });
+    // const obj= { 
+    //   Name:req.body.Name,
+    //   Brand:req.body.Brand,
+    //   CountOfStock:req.body.CountOfStock,
+    //   Categories:req.body.Categories,
+    //   Description:req.body.Description, 
+    //   Price:req.body.Price,
+    //   Rating:req.body.Rating, 
+    //   NumberOfVote:req.body.NumberOfVote,
+    //   Picture: arrayOfPicture
+    // } 
    
      
-  const {id} =req.params
-  Product.findByIdAndUpdate(id,obj)
-  .then(result=>{
-    console.log(result)
-    res.json({
-      msg:'updated',
-      data:result 
+  // const {id} =req.params
+  // Product.findByIdAndUpdate(id,req.body)
+  // .then(result=>{
+  //   console.log(result)
+  //   res.json({
+  //     msg:'updated',
+  //     data:result 
        
-    })
-  }) 
+  //   })
+  // }) 
        
-  } catch (error) {
-     console.error(error)
-     res.status(500).json({msg:"server error update error"})
-  }
-}
+//   } catch (error) {
+//      console.error(error)
+//      res.status(500).json({msg:"server error update error"})
+//   }
+// }
  
 
 // const UpdateProduct = (req,res)=>{
@@ -199,27 +200,27 @@ const findProduct = async(req,res)=>{
      res.status(500).json({msg:"server error find"})
   }
 }
+ 
+ 
 
 
-
-
-const DeleteAll = async(req,res)=>{
-  try {
-    Product.deleteMany({})
-    .then(result=>{
-      res.json({
-        msg:'all get deleted ! ',
-        data:result
+// const DeleteAll = async(req,res)=>{
+//   try {
+//     Product.deleteMany({})
+//     .then(result=>{
+//       res.json({
+//         msg:'all get deleted ! ',
+//         data:result
          
-      })
-    })
+//       })
+//     })
 
-  } catch (error) {
-    console.error(error)
-    res.status(500).json({msg:"can't delete all  "})
+//   } catch (error) {
+//     console.error(error)
+//     res.status(500).json({msg:"can't delete all  "})
     
-  }
-}
+//   }
+// }
 
 const ProductNotFound = async(req,res)=>{
   try {
@@ -234,12 +235,12 @@ const ProductNotFound = async(req,res)=>{
 module.exports = {
   // getAllProduct,
   getProductById,
-  DeleteProduct,
+  // DeleteProduct,
   findProduct,
-  UpdateProduct,
+  // UpdateProduct,
   ProductNotFound,
   ProductUpload,
-  DeleteAll
+  // DeleteAll
 
 
 

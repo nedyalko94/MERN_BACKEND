@@ -2,18 +2,20 @@ const mongoose = require('mongoose')
 const User = require('../Models/UserSchema')
 // check
 
-  const DeleteById = function (req, res) {
+  const DeleteById =  async(req, res)=> {
     try {
 
 
         const { id } = req.params
-        User.findByIdAndDelete(id, req.body)
-            .then(result => {
+       await User.findByIdAndDelete(id, req.body)
+
+        const AllUsers =await User.find({})
+            
                 res.json({ 
                     msg:'user is deleted',
-                    data: result
+                    AllUsers: AllUsers
                 })
-            })
+            
     } catch (error) {
         console.error(error)
         res.status(500).json({ msg:"server error delete" })
@@ -22,20 +24,20 @@ const User = require('../Models/UserSchema')
 
 
 
- const DeleteAll =  function (req, res) {
+ const DeleteAll =  async(req, res) =>{
     try {
-        User.deleteMany({})
-            .then(result => {
-                res.json({
-                    message: 'all get deleted ! ',
-                    data: result
-
-                })
-            })
+       await User.deleteMany({})
+       const AllUsers =await User.find({})
+            
+       res.json({ 
+        msg:'all get deleted',
+        AllUsers: AllUsers
+    })
+           
 
     } catch (error) {
         console.error(error)
-        res.status(500).json({ message: "can't delete many " })
+        res.status(500).json({ message: "can't delete server error " })
 
     }
 

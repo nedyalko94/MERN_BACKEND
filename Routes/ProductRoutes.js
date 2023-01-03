@@ -6,6 +6,15 @@ const {CreateComment} = require('../Controllers/CreateComment')
 const {GetComment} = require('../Controllers/getComment')
 const {Product_vote}= require('../Controllers/Product_vote')
 const {Product_vote_check}= require('../Controllers/Product_vote_check')
+const {Product_Update} = require('../Controllers/Product_Update')
+const {Delete_All,Delete_Product} = require('../Controllers/Product_Delete')
+const {Visitation} = require('../Controllers/Product_PostVisit')
+
+
+// post visit
+ProductRouter.post('/visit',Visitation)
+// ProductRouter.post('/visit',Visitation)
+
 
 
 
@@ -23,20 +32,20 @@ ProductRouter.get('/:id',getProductById)
   // http://localhost:3004/Product/?cate  // ony categories  you can't filter them  with =${}
 
  
-
-  ProductRouter.post('/AddProduct',uploader.any('Picture'),ProductUpload) 
+  // ,uploader.any('Picture')
+  ProductRouter.post('/AddProduct',ProductUpload) 
 
   //http://localhost:3004/Product/AddProduct  
-
-ProductRouter.put('/UpdateProduct/:id',uploader.any('Picture'),UpdateProduct)
+//,uploader.any('Picture')
+ProductRouter.put('/UpdateProduct/:id',Product_Update)
 // http://localhost:3004/Product/UpdateProduct/6355497afb3f2011ff590ce9
 
 
-ProductRouter.delete('/DeleteProduct/:id',DeleteProduct) 
+ProductRouter.delete('/DeleteProduct/:id',Delete_Product) 
 //http://localhost:3004/Product/DeleteProduct/6350d16556ff9a31da69b833  
  
  
-ProductRouter.delete('/DeleteAll',DeleteAll)
+ProductRouter.delete('/DeleteAll',Delete_All)
 
 ProductRouter.get('*',ProductNotFound)
 

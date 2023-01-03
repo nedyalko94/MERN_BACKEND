@@ -1,15 +1,10 @@
 "use strict";
 const nodemailer = require("nodemailer");
  require('dotenv')
- // no need path .config({path:'../.env'})
 
-// async..await is not allowed in global scope, must use a wrapper
  const mail = async(req,res) =>{
-  // Generate test SMTP service account from ethereal.email
-  // Only needed if you don't have a real mail account for testing
-//   let testAccount = await nodemailer.createTestAccount();
+  console.log(req.body)
  
-  // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     service:process.env.SERVICE,
     host:process.env.HOST, 
@@ -58,6 +53,9 @@ const nodemailer = require("nodemailer");
         res.send({msg:'email was send successfully'})
         console.log('email was send successfully',info.messageId)
     }
+
+
+    
     // console.log("Message sent: %s", info.messageId);
     // console.log(mailOption)
     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
@@ -66,7 +64,7 @@ const nodemailer = require("nodemailer");
     // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou... 
    
-
+ 
   
   });
 

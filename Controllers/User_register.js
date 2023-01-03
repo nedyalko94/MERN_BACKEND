@@ -6,7 +6,7 @@ const crypto = require('crypto')
 const { sendEmail } = require('./EmailValidation')
 
 const register = async(req, res) => {
-
+ 
     console.log(req.body)
     const { username, password, Password2, Email, FirstName, LastName, Gender, Country, City, PostCode, Street, NumberOfStreet } = req.body
     let err = []
@@ -23,35 +23,46 @@ const register = async(req, res) => {
     if (password.length < 8) {
         err.push({ msg: 'Password must be at least 8 characters' })
     }
+    // email check
+    if (Email.match(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/g) === null ) {
+        err.push({ msg: 'Invalid Email' })
+    }
+    // check pass A-Z 0-9 special char 
+    if ( password.match(/[A-Z]/g) === null  
+    || password.match(/[0-9]/g)  === null 
+    || password.match(/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/g) === null ) {
+        err.push({ msg: 'Password must includes , number 1-9,  upper case A-Z, and special character ' }) 
+    }
+ 
     if (err.length > 0) {
-        res.status(500).json({ msg: err })
+        res.status(500).json({ msg: err }) 
 
-        // ,{ err,UserName,Password, Password2 ,Email , FirstName, LastName, Gender,Country,City,PostCode,Street}
 
-    } else {
-        User.findOne({ Email: Email })
+    } else{
+ 
+        User.findOne({ Email: Email }) 
             .then(async(result) => {
                 if (result !== null) {
-                    // console.log("🚀check result", result)
-
-                    // user exist  
+                    
                     err.push({ msg: 'email is already register' })
+                    res.status(500).json({ msg: err })
 
-                    console.log("🚀 ~ file: UserRoutes.js ~ line 60 ~ UserRouter.post ~ err", err)
+ 
                 } else {
-                    const newUser =  new User({
-                        username,
-                        Email,
-                        password,
+                 
+                    const newUser =  new User({ 
+                        username, 
+                        Email, 
+                        password, 
                         Password2,
-                        FirstName,
+                        FirstName, 
                         LastName,
                         Gender,
                         Country,
                         City,
                         PostCode,
-                        Street,
-                        NumberOfStreet,
+                        Street, 
+                        NumberOfStreet,  
                     })
 
                         
@@ -67,49 +78,38 @@ const register = async(req, res) => {
                                 .catch(err => {
                                     console.log(err)
                                 })
-
+ 
                         })
 
-                    })
+                    }) 
                     let token = await new Token ({
                         userId:newUser._id,
                         token:crypto.randomBytes(32).toString('hex')
                     }).save()
-                    const message = ` click on the link to verify your email ${process.env.BASE_URL}/Users/verify/${newUser._id}/${token.token}`
+                    const message = ` click on the link to verify your email ${process.env.SERVER_URL}/Users/verify/${newUser._id}/${token.token}`
 
                     let output = ` <h3> New Guest email from ${newUser.FirstName}</h3>
                     <ul>
                     <li> <h3> Name : ${newUser.username} </h3></li>
                     <li> <h3> Email: ${newUser.Email} </h3> </li>
 
-                    </ul>
+                    </ul>  
 
                     <p> ${message} </p>`
-                     sendEmail(newUser.Email,"verify email",output, message)
-                    // res.send('email send to your acc pls verify')
+                    let success = [{ message: 'register was success now you can confirm your email' }]
+                  
+                    
+                        res.status(200).json({ msg: success })
+                        await  sendEmail(newUser.Email,"verify email",output, message)  
+    
+                    // }
+                    
                 }
-            })
-
-            // res.status(500).json({msg:err})
-            .then(() => {
-                let success = [{ message: 'register was success now you can confirm your email' }]
-                if (err.length > 0) {
-                    res.status(500).json({ msg: err })
-                }
-                else {
-                    res.status(200).json({ msg: success })
-                    // req.flash('success_msg','you are now register')
-
-                    // res.location('http://localhost:3004/')
-                    // res.redirect('/Users/login')
-
-                    //http://localhost:3004/Users/login
-                    //is not in array
-                }
-            })
-
-
-    }
-}
+                
+            }
+            )
+        }       
+    
+} 
 
 module.exports={register}

@@ -7,7 +7,7 @@ const Product_vote = async(req,res)=>{
 const user = req.body.user
 const voteValue = req.body.value
 
-const obj = {
+const obj = { 
     product_id:product._id,
     user_id:user._id,
     vote:voteValue
@@ -21,11 +21,12 @@ ProductVote.find({product_id:product._id},(err,data)=>{
          Product.findById({_id:product._id},async(err,result)=>{
             if (err){ console.log(err);}
             else{ 
-                let voteUpdate = result.NumberOfVote +1
+                let totalVotePeople = result.NumberOfVote +1
                 // need better formula/algorithm this one is not good/ wrong 
-                let voteResult =result.Rating ==0? voteValue:(result.Rating * result.NumberOfVote+voteValue )/voteUpdate
+                let voteResult =result.Rating ==0? voteValue:(result.Rating * result.NumberOfVote+voteValue )/totalVotePeople
                 console.log(voteResult)
-               await Product.findByIdAndUpdate({_id:product._id},{NumberOfVote:voteUpdate,Rating:voteResult})
+                //
+               await Product.findByIdAndUpdate({_id:product._id},{NumberOfVote:totalVotePeople,Rating:voteResult})
                 // .toFixed(1) in front end otherwise here cause bug 
             } 
          })

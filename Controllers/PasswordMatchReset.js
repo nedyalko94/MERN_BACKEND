@@ -14,7 +14,7 @@ const PasswordMatchReset = async(req, res)=>{
     
     //    let test=   await User.updateOne({id:user._id,confirm:true}) 
         //  await User.findByIdAndUpdate({_id:user._id},{FirstName:"passwordChange"}) 
-         res.redirect(`http://localhost:3000/PasswordUpdate/${user._id}`)
+         res.redirect(`${process.env.CLIENT_URL}/PasswordUpdate/${user._id}`)
         
          await Token.findByIdAndRemove(token._id) 
 
