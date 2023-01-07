@@ -55,7 +55,6 @@ app.use(cors({
   origin:"https://endprojectcybertech.netlify.app",
   'Access-Control-Allow-Origin':"https://endprojectcybertech.netlify.app",
   credentials:true,
-  "Access-Control-Allow-Credentials":true,
   // origin:"https://endprojectcybertech.netlify.app/"
 
 }))

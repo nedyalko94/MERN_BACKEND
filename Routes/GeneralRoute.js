@@ -19,15 +19,10 @@ GeneralRoute.post('/NewsLetterSend',NewsLetterSend)
 GeneralRoute.post("/purchase_history",purchase_history)
 
 // GeneralRoute.post("/capture",capturePayment );
-  
-
-
 
 GeneralRoute.get("/PayPalClientID", (req, res) => {
   res.json({
     paypalClientId: process.env.CLIENT_ID,
   })
 })
-
-
 module.exports=GeneralRoute
