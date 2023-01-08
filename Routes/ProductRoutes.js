@@ -9,10 +9,12 @@ const {Product_vote_check}= require('../Controllers/Product_vote_check')
 const {Product_Update} = require('../Controllers/Product_Update')
 const {Delete_All,Delete_Product} = require('../Controllers/Product_Delete')
 const {Visitation} = require('../Controllers/Product_PostVisit')
+const {getProductVisits} = require('../Controllers/Product_GetVisit')
 
 
 // post visit
 ProductRouter.post('/visit',Visitation)
+ProductRouter.get('/get_visit',getProductVisits)
 // ProductRouter.post('/visit',Visitation)
 
 
