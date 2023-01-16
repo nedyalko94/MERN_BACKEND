@@ -14,10 +14,10 @@ const Visitation = async(req,res)=>{
 
     }else{ 
         let updateVisits = data.visits + 1
-     await ProductVisit.updateOne({product_id:req.body.product_id},{visits:updateVisits})
+     await ProductVisit.updateOne({product_id:req.body.product_id},{product:product ,visits:updateVisits  })
     }
  
-   })  
+   })   
    
  
 

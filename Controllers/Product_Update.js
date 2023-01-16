@@ -3,9 +3,9 @@ const Product = require("../Models/ProductSchema");
 const Product_Update = async(req,res)=>{
     const {id} =req.params
 
-    const {Name,Brand,CountOfStock,Categories,Description,Price,Rating,NumberOfVote,Picture} = req.body
+    const {Name,Brand,CountOfStock,Categories,Description,Price,PromoPrice,Rating,NumberOfVote,Picture} = req.body
  
- 
+ console.log(req.body)
 
   if(Name !==''){ await Product.findByIdAndUpdate({ _id: id },{Name:Name})}
   if(Brand !==''){ await Product.findByIdAndUpdate({ _id: id },{Brand:Brand})} 
@@ -13,6 +13,7 @@ const Product_Update = async(req,res)=>{
  if(Categories !==''){ await Product.findByIdAndUpdate({ _id: id },{Categories:Categories})}
  if(Description !==''){ await Product.findByIdAndUpdate({ _id: id },{Description:Description})}
  if(Price !==''){ await Product.findByIdAndUpdate({ _id: id },{Price:Price})}
+ if(PromoPrice !==''){ await Product.findByIdAndUpdate({ _id: id },{PromoPrice:PromoPrice})}
  if(Rating !==''){ await Product.findByIdAndUpdate({ _id: id },{Rating:Rating})}
  if(NumberOfVote !==''){ await Product.findByIdAndUpdate({ _id: id },{NumberOfVote:NumberOfVote})}
  if(Picture.length !==0){ await Product.findByIdAndUpdate({ _id: id },{Picture:Picture})}
@@ -25,7 +26,7 @@ const Product_Update = async(req,res)=>{
     data:AllProduct 
      
   })
-
+ 
 
 }
 

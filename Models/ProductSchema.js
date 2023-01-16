@@ -27,6 +27,11 @@ const ProductSchema = mongoose.Schema({
     type: Number,
     require: false,
   },
+  PromoPrice:{
+    type: Number,
+    default:null
+
+  },
   Rating: {
     type: Number,
     require: false,
@@ -39,7 +44,7 @@ const ProductSchema = mongoose.Schema({
     type: Array,
     require: false, 
   },
-  date: {
+  date: { 
     type: Date,
     default: Date.now
   }

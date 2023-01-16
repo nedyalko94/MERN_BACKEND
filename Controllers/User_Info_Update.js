@@ -5,7 +5,7 @@ const User_Info_Update = async(req,res)=>{
  console.log(req.body)
     const {id} = req.params
 
-
+ 
     let myError = []
     let mySuccess=[] 
 
@@ -42,7 +42,7 @@ const User_Info_Update = async(req,res)=>{
 
         res.json({msg:'user is updated',AllUsers:Users}) 
 
-}
+} 
 
 
 module.exports = {User_Info_Update}
