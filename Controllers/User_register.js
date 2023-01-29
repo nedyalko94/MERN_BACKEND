@@ -88,7 +88,7 @@ const register = async(req, res) => {
                     }).save()
                     const message = ` click on the link to verify your email ${process.env.SERVER_URL}/Users/verify/${newUser._id}/${token.token}`
 
-                    let output = ` <h3> New Guest email from ${newUser.FirstName}</h3>
+                    let output = ` <h3> new registration ! 
                     <ul>
                     <li> <h3> Name : ${newUser.username} </h3></li>
                     <li> <h3> Email: ${newUser.Email} </h3> </li>
