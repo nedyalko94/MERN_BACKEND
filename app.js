@@ -45,7 +45,7 @@ connectDB();
 app.use(cors({
   origin:"mernshop-two.vercel.app",
   credentials:true,
- "Access-Control-Allow-Origin":"https://mern-shop-back-end.onrender.com"
+ "Access-Control-Allow-Origin":"*"
   // origin:"https://endprojectcybertech.netlify.app"
 
 }))
