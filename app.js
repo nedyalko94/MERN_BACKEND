@@ -52,9 +52,7 @@ connectDB();
 // })
 
 app.use(cors({
-  origin:"mernfrontend-eight.vercel.app", 
-
-  'Access-Control-Allow-Origin':"mernfrontend-eight.vercel.app",
+  origin:"*",
   credentials:true,
   // origin:"https://endprojectcybertech.netlify.app"
 
