@@ -35,25 +35,17 @@ const httpServer = createServer(app)
 // });
  
 
-// const flash = require('connect-flash')
+
 //---------connection ----------------------------------
 connectDB();
 
-// passport config 
-// require()
-//------------------------------middleware------------------------
-// cors({
-//   origin: 'http://localhost:3006',
-//   credentials: true,
-//   // Access-Control-Allow-Origin: "http://localhost:3006"
 
-//   // allowed access 
-//   // origin:"http://yourdns.com" 
-// })
+//------------------------------middleware------------------------
 
 app.use(cors({
-  origin:"*",
+  origin:"mernshop-two.vercel.app",
   credentials:true,
+ "Access-Control-Allow-Origin":"mernshop-two.vercel.app"
   // origin:"https://endprojectcybertech.netlify.app"
 
 }))
