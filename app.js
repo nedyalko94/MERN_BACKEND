@@ -52,17 +52,15 @@ connectDB();
 // })
 
 app.use(cors({
-  origin:"https://endprojectcybertech.netlify.app",
-  'Access-Control-Allow-Origin':"https://endprojectcybertech.netlify.app",
+  origin:"mernfrontend-eight.vercel.app", 
+
+  'Access-Control-Allow-Origin':"mernfrontend-eight.vercel.app",
   credentials:true,
-  // origin:"https://endprojectcybertech.netlify.app/"
+  // origin:"https://endprojectcybertech.netlify.app"
 
 }))
 
-// Access to fetch at 'https://raspberry-eel-wear.cyclic.app//Product/?cate' from origin
-//  'https://endprojectcybertech.netlify.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' 
-//  header is present on the requested resource. If an opaque response serves your needs, set
-//  the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
