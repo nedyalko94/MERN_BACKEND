@@ -6,9 +6,9 @@ const login = (req, res, next) => {
 
     // console.log(req.body)
     passport.authenticate('local', (err, user, info) => { 
-        // console.log(err)
-        // console.log(user)
-        // console.log(info)
+        console.log(err)
+        console.log(user)
+        console.log(info)
         if (err) {return res.status(400).json({msg:'wrong username or password'})}
         if (!user) { return res.status(400).json({ msg: 'wrong username or password' }) }
         if(user.confirm === false ) { return  res.json({msg:'please confirm your email'})}
