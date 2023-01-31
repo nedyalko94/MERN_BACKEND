@@ -43,10 +43,12 @@ connectDB();
 //------------------------------middleware------------------------
 
 app.use(cors({
-  origin:"https://mernshop-two.vercel.app",
-  'Access-Control-Allow-Origin':"https://mernshop-two.vercel.app",
+  origin:"https://endprojectcybertech.netlify.app",
+  'Access-Control-Allow-Origin':"https://endprojectcybertech.netlify.app",
   credentials:true,
   // origin:"https://endprojectcybertech.netlify.app"
+  // origin:"https://mernshop-two.vercel.app",
+
 
 }))
 
