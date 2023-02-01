@@ -23,9 +23,12 @@ const CreateComment = async(req,res)=>{
                         if(data.length>0){
                             const comment = new Comments(verifiedBuyer)
                             comment.save() 
+                            console.log(comment)
                         }else{
                             const comment = new Comments(req.body)
                             comment.save()
+                            console.log(comment)
+
                         }
                     }) 
                 }else{

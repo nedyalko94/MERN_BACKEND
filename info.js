@@ -37,7 +37,6 @@
 ///   express-session  connect-flash passport-local passport
 
 
-//WebSocketClient.js:16 WebSocket connection to 'ws://localhost:3005/ws' failed:
 
 
 //1:23:16 / 1:24:56
@@ -48,8 +47,7 @@
 // schema description and data  validation
 
 
-// (node:7208) [DEP0111] DeprecationWarning: Access to process.binding('http_parser') is deprecated.
-// [0] (Use `node --trace-deprecation ...` to show where the warning was created)
+
 
 //https://www.linkedin.com/jobs/search/?currentJobId=3155106955&keywords=react
 //https://www.linkedin.com/jobs/search/?currentJobId=3335970054&keywords=react&start=75
