@@ -25,14 +25,14 @@ const httpServer = createServer(app)
  
 
 
-//---------connection ----------------------------------
+//---------DB Connection ----------------------------------
 connectDB();
 
 //------------------------------middleware------------------------
 
 app.use(cors({
-  origin:"https://endprojectcybertech.netlify.app",
-  'Access-Control-Allow-Origin':"https://endprojectcybertech.netlify.app",
+  origin:["https://endprojectcybertech.netlify.app","https://mernshop-two.vercel.app"],
+  'Access-Control-Allow-Origin':["https://endprojectcybertech.netlify.app","https://mernshop-two.vercel.app"],
   credentials:true,
   // origin:"https://endprojectcybertech.netlify.app"
   // origin:"https://mernshop-two.vercel.app",
@@ -53,6 +53,8 @@ app.use(session({
     sameSite: "none", // must be 'none' to enable cross-site delivery
     secure: true, // must be true if sameSite='none'
   }
+  //------------------------------------------
+  // -----------https://stackoverflow.com/questions/66503751/cross-domain-session-cookie-express-api-on-heroku-react-app-on-netlify
   // cookie: { secure: true,  expire:60*60*24 }  //1 day 
 }))
 app.use(cookieParser('secret key'))
