@@ -16,23 +16,12 @@ const GeneralRoute = require('./Routes/GeneralRoute')
 require("./Config/passport")(passport)
 
 const { createServer } = require("http") 
-// const { Server } = require("socket.io");
 
-const app = express(); //start app
+const app = express(); 
 
 const httpServer = createServer(app)
 
-// const io = new Server (httpServer, { cors:{
-//   origin:'http://localhost:3000',
-//   credentials:true 
-// } }) 
 
-// io.on("connection", (socket) => {
-// console.log('someone has connect')
-// socket.on('disconnect',()=>{
-//   console.log('someone has left')
-// })
-// });
  
 
 
@@ -51,7 +40,7 @@ app.use(cors({
 
 }))
 
-
+app.set("trust proxy", 1);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -59,7 +48,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
   secret: 'secret key',
   resave: true,
-  saveUninitialized: true,
+  saveUninitialized: false,
+  cookie: {
+    sameSite: "none", // must be 'none' to enable cross-site delivery
+    secure: true, // must be true if sameSite='none'
+  }
   // cookie: { secure: true,  expire:60*60*24 }  //1 day 
 }))
 app.use(cookieParser('secret key'))
