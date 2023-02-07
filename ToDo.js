@@ -35,8 +35,8 @@
 //? protect route in front end 
 //@ done 
 //? protect route in back end 
- //@  
-//? payment gateway 
+ //@   
+//? payment 
 //@ done 
 
 //? make it responsive 
@@ -44,22 +44,23 @@
 
 //# optional upgrade
 //? vote for product
-//@
+//@ done
 //? calculate and display vote
-//@ 
+//@  done
 //? action 
-//@
+//@ done
 //? promotion 
-//@
+//@ done
 //? trending 
-//@
+//@ done
 
 
 //% ----------------------------------Fixing problems and upgrade options
 
 //% Upgrade
 
-//? check the token deletion adding with password reset
+//? check the token deletion adding with password reset 
+// done
 
 //? comment section
 //@ done still can be upgrade with more options
@@ -69,11 +70,8 @@
 //@ done with warning
 //$  
 
-
-
-
-//? add section with purchase
-//@
+//? add section with purchase history
+//@ done
 
 //? remember the button after adding in wishlist or card
 //@ done even upgraded to add / remove /remember(check)
@@ -84,7 +82,7 @@
 
 
 //! can't log in from diff page 
-//@
+//@ done
 //! on key down should send me to home with result of search 
 //@ done
 //! when there is no product
@@ -96,5 +94,6 @@
 //! fix the bug in profile when rerender  get error and can't get user 
 //@ done
 //! can't send  multiple email with newsletter block from  the email provider//spam (need email change )
-//@
+//@  can't be fix
+
 

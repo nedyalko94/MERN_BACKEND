@@ -55,7 +55,7 @@ app.use(session({
   }
   //------------------------------------------
   // -----------https://stackoverflow.com/questions/66503751/cross-domain-session-cookie-express-api-on-heroku-react-app-on-netlify
-  // cookie: { secure: true,  expire:60*60*24 }  //1 day 
+  // cookie: { secure: true,  maxAge:60*60*24 }  //1 day 
 }))
 app.use(cookieParser('secret key'))
 app.use(passport.initialize())
