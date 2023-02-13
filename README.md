@@ -1,36 +1,20 @@
-# npm i express mongoose dotenv
-# npm i --save-dev nodemon concurrently  -for running multiple port (server and project)
-# npx create-react-app .   - creating react app in same folder
-# rm -rf .git for removing git repository
+# Backend shopping app serving my React Frontend  part of Full Stack MERN Project.
 
-# package.json / 
- "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "client": "npm start --prefix ../FullStackCommerceFrondEnd",
-    "admin": "npm start --prefix ../FullStackAdminPanel",
-    "all": "concurrently  \"npm run client\" \"npm run admin\" \"npm run dev\""
-  },  
+## What i have use.
 
-
-  // 
-  Script for import date to DB
-  
-# npm i express mongoose dotenv
-# npm i --save-dev nodemon concurrently  -for running multiple port (server and project)
-# npx create-react-app .   - creating react app in same folder
-# rm -rf .git for removing git repository
-
-# package.json / 
- "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "client": "npm start --prefix ../FullStackCommerceFrondEnd",
-    "admin": "npm start --prefix ../FullStackAdminPanel",
-    "all": "concurrently  \"npm run client\" \"npm run admin\" \"npm run dev\""
-  },  
+1.  Node 
+1. ExpressJs for routes and API build
+1. Bcrypt for encrypt the passwords
+1. Passport , Passport-local ,Express-Session,cookie parser for Authentication
+1. Cors for cross origin access
+1. Mongoose + MongoDB for database
+1. Nodemailer for :
+    * Emails 
+    * Register Confirmation 
+    * Password Reset combine with jsonwebtoken
+    * Purchase Notification
+    * Sending NewsLetter
+1. Multer but is not in use because i switch mid project to Firebase for photo host to keep my project flexible and completely free for host. 
 
 
-  // 
-  Script for import date to DB
-  
+

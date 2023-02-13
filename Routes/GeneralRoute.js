@@ -11,14 +11,17 @@ const {purchase_history}= require('../Controllers/Purchase_history')
 //# new email subscription
 //  http://localhost:3004/NewsLetter
 GeneralRoute.post('/NewsLetter',newRegisterEmail)  
+
 GeneralRoute.post('/sendEmail',mail)
+
 GeneralRoute.post('/onApprove',onApprove)
+
 GeneralRoute.post('/onApproveShoppingCard',onApproveShoppingCard) 
+
 GeneralRoute.post('/NewsLetterSend',NewsLetterSend)  
 
 GeneralRoute.post("/purchase_history",purchase_history)
 
-// GeneralRoute.post("/capture",capturePayment );
 
 GeneralRoute.get("/PayPalClientID", (req, res) => {
   res.json({

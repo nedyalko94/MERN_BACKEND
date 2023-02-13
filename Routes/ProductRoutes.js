@@ -53,9 +53,11 @@ ProductRouter.get('*',ProductNotFound)
 
 // ---------------------------------------Comments-------------------------------------- 
 ProductRouter.post('/Comments/:id',CreateComment)
+
 ProductRouter.post('/getComments/:id',GetComment) 
 
 ProductRouter.post('/vote',Product_vote)
+
 ProductRouter.post('/vote_check',Product_vote_check)
  
 
